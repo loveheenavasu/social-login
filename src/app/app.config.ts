@@ -9,7 +9,7 @@ export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideClientHydration() ,   {
     provide: 'SocialAuthServiceConfig',
     useValue: {
-      autoLogin: false,
+      autoLogin: true,
       providers: [
         {
           id: FacebookLoginProvider.PROVIDER_ID,
