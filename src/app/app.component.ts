@@ -37,7 +37,9 @@ export class AppComponent {
     });
   }
   loginWithFacebook(): void {
-    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID).then((res)=>{
+      console.log("res")
+    });
   }
   signOut(): void {
     this.socialAuthService.signOut();
