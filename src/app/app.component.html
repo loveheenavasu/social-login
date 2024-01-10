@@ -1,35 +1,78 @@
 <h2 class="text-center mb-4">Login with Facebook in Angular</h2>
 <div *ngIf="!isLoggedin">
-  <button type="button" (click)="loginWithFacebook()" class="btn btn-primary btn-block">Signin with Facebook</button>
+  <button
+    type="button"
+    (click)="loginWithFacebook()"
+    class="btn btn-primary btn-block"
+  >
+    Signin with Facebook
+  </button>
 </div>
 <div *ngIf="isLoggedin === true">
   <div class="form-group">
     <label>First Name</label>
-    <input type="text" class="form-control" [value]="socialUser.firstName" id="firstname" readonly>
+    <input
+      type="text"
+      class="form-control"
+      [value]="socialUser.firstName"
+      id="firstname"
+      readonly
+    />
   </div>
   <div class="form-group">
     <label>Last Name</label>
-    <input type="text" class="form-control" [value]="socialUser.lastName" id="lastname" readonly>
+    <input
+      type="text"
+      class="form-control"
+      [value]="socialUser.lastName"
+      id="lastname"
+      readonly
+    />
   </div>
   <div class="form-group">
     <label>Email</label>
-    <input type="text" class="form-control" [value]="socialUser.email" id="email" readonly>
+    <input
+      type="text"
+      class="form-control"
+      [value]="socialUser.email"
+      id="email"
+      readonly
+    />
   </div>
-  <button type="button" (click)="signOut()" class="btn btn-primary">Sign Out</button>
+  <button type="button" (click)="signOut()" class="btn btn-primary">
+    Sign Out
+  </button>
 </div>
-
-
 
 <div>
   <h2>Angular Login with Google</h2>
-  <!-- data-login_uri="https://social-login-ashen.vercel.app/" -->
-      <div>
-        <div >
-          <div id="g_id_onload"
+  <!--  -->
+  <div>
+    <div>
+      <div
+        id="g_id_onload"
+        data-client_id="745628972767-3mlbmn5lcps4d1joe97ftckonu6gtio8.apps.googleusercontent.com"
+        data-context="signin"
+        data-ux_mode="popup"
+        data-login_uri="https://social-login-ashen.vercel.app"
+        data-auto_select="false"
+        data-itp_support="false"
+      ></div>
+
+      <div
+        class="g_id_signin"
+        data-type="standard"
+        data-shape="rectangular"
+        data-theme="outline"
+        data-text="signin_with"
+        data-size="large"
+        data-logo_alignment="left"
+      ></div>
+      <!-- <div id="g_id_onload"
            data-client_id="745628972767-3mlbmn5lcps4d1joe97ftckonu6gtio8.apps.googleusercontent.com"
            data-context="signin"
            data-ux_mode="popup"
-       
+           data-login_uri="https://social-login-ashen.vercel.app"
            data-nonce=""
            data-auto_prompt="false">
       </div>
@@ -41,24 +84,35 @@
            data-text="signin_with"
            data-size="large"
            data-logo_alignment="left">
-      </div>
-  </div>
-  <div *ngIf="isLoggedin === true">
+      </div> -->
+    </div>
+    <div *ngIf="isLoggedin === true">
       <div class="form-group">
-          <label>First Name</label>
-          <input type="text" [value]="socialUser.firstName" id="firstname" readonly>
+        <label>First Name</label>
+        <input
+          type="text"
+          [value]="socialUser.firstName"
+          id="firstname"
+          readonly
+        />
       </div>
-      <br>
+      <br />
       <div class="form-group">
-          <label>Last Name</label>
-          <input type="text" [value]="socialUser.lastName" id="lastname" readonly>
+        <label>Last Name</label>
+        <input
+          type="text"
+          [value]="socialUser.lastName"
+          id="lastname"
+          readonly
+        />
       </div>
-      <br>
+      <br />
       <div class="form-group">
-          <label>Email</label>
-          <input type="text" [value]="socialUser.email" id="email" readonly>
+        <label>Email</label>
+        <input type="text" [value]="socialUser.email" id="email" readonly />
       </div>
-      <br>
+      <br />
       <button type="button" (click)="logOut()">Log Out</button>
+    </div>
   </div>
 </div>

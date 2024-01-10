@@ -38,11 +38,11 @@ export class AppComponent {
       this.isLoggedin = user != null;
     });
 
-    gapi.load('auth2', () => {
-      gapi.auth2.init({
-        client_id: '745628972767-6hdrglvtjp8fi8ohq9m2qqkjv4r7st4q.apps.googleusercontent.com',
-      });
-    });
+    // gapi.load('auth2', () => {
+    //   gapi.auth2.init({
+    //     client_id: '745628972767-6hdrglvtjp8fi8ohq9m2qqkjv4r7st4q.apps.googleusercontent.com',
+    //   });
+    // });
   }
 
   
@@ -53,7 +53,10 @@ export class AppComponent {
   }
 
   loginWithGoogle(): void {
-    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then((res)=>{
+      console.log( res,' this.socialAuthService this.socialAuthService')
+    });
+    
 }
   signOut(): void {
     this.socialAuthService.signOut();
