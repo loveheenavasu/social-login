@@ -8,9 +8,14 @@
     <p class="card__name">PROVIDER : {{ userDetails.provider }}</p>
     <p class="card__name">{{ userDetails.name }}</p>
     <div class="grid-container">
+        <div class="grid-child-posts">
+            Email :
+          </div>
       <div class="grid-child-posts">
         {{ userDetails.email }}
       </div>
     </div>
+
+    <button class="btn draw-border" (click)="signout()">Sign Out</button>
   </div>
 </div>

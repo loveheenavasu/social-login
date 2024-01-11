@@ -1,6 +1,8 @@
+
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-user-details',
@@ -11,11 +13,17 @@ import { Subscription } from 'rxjs';
 })
 export class UserDetailsComponent {
   public userDetails:any
-  constructor(private _activatedRoute: ActivatedRoute) { }
+  constructor(private _activatedRoute: ActivatedRoute , private socialAuthService: SocialAuthService, private router:Router) { }
 
   ngOnInit(): void {
     this.userDetails = JSON.parse(localStorage.getItem('user:session') as string);
     console.log(this.userDetails , "userDetails")
   }
 
+  
+  public signout(): void {
+    this.socialAuthService.signOut();
+    localStorage.clear();
+    this.router.navigate(['/']);  // Use an array with an empty string
+  }
 }
