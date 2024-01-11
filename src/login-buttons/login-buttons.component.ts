@@ -2,6 +2,8 @@ import { SocialLoginModule, SocialUser, SocialAuthService, FacebookLoginProvider
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login-buttons',
@@ -22,6 +24,7 @@ export class LoginButtonsComponent {
   constructor(
     private formBuilder: FormBuilder,
     private socialAuthService: SocialAuthService,
+    private router:Router
   ) {
     console.log(this.isLoggedin)
   }
@@ -46,7 +49,10 @@ export class LoginButtonsComponent {
     this.socialAuthService
       .signIn(FacebookLoginProvider.PROVIDER_ID)
       .then((res) => {
-        console.log('res')
+        if(res){
+          this.router.navigate(['/user-details' , res])
+        }
+        console.log('res' , res)
       })
   }
 
