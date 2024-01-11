@@ -20,10 +20,10 @@ export class UserDetailsComponent {
     console.log(this.userDetails , "userDetails")
   }
 
-  
+
   public signout(): void {
-    this.socialAuthService.signOut();
+    // this.socialAuthService.signOut();
     localStorage.clear();
-    this.router.navigate(['/']);  // Use an array with an empty string
+    this.router.navigate(['/']);  
   }
 }
