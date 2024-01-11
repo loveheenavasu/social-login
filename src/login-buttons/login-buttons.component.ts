@@ -35,6 +35,7 @@ export class LoginButtonsComponent {
     })
     this.socialAuthService.authState.subscribe((user) => {
       console.log(user , "userrr")
+      localStorage.setItem('user:session' , JSON.stringify(user))
       this.socialUser = user
       this.isLoggedin = user != null
     })

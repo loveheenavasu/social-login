@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-user-details',
@@ -8,5 +10,12 @@ import { Component } from '@angular/core';
   styleUrl: './user-details.component.scss'
 })
 export class UserDetailsComponent {
+  public userDetails:any
+  constructor(private _activatedRoute: ActivatedRoute) { }
+
+  ngOnInit(): void {
+    this.userDetails = JSON.parse(localStorage.getItem(':session') as string);
+    console.log(this.userDetails , "userDetails")
+  }
 
 }
