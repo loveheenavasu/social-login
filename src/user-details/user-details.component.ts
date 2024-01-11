@@ -21,6 +21,7 @@ export class UserDetailsComponent {
 
 
   public signout(): void {
+    this.userDetails = ''
     // this.socialAuthService.signOut();
     localStorage.clear();
     this.router.navigate(['/']);  
