@@ -17,7 +17,6 @@ export class UserDetailsComponent {
 
   ngOnInit(): void {
     this.userDetails = JSON.parse(localStorage.getItem('user:session') as string);
-    console.log(this.userDetails , "userDetails")
   }
 
 
