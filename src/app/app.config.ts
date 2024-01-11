@@ -26,21 +26,9 @@ export const appConfig: ApplicationConfig = {
           },
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider('clientId'),
+            provider: new FacebookLoginProvider('37362629218518'),
           },
         ],
-        // providers: [
-        //   {
-        //     id: FacebookLoginProvider.PROVIDER_ID,
-        //     provider: new FacebookLoginProvider('337362629218518'),
-        //   },
-        //   {
-        //     id: GoogleLoginProvider.PROVIDER_ID,
-        //     provider: new GoogleLoginProvider(
-        //       '745628972767-6hdrglvtjp8fi8ohq9m2qqkjv4r7st4q.apps.googleusercontent.com'
-        //     )
-        //   }
-        // ],
         onError: (err) => {
           console.error(err)
         },
