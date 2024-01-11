@@ -52,7 +52,9 @@ export class LoginButtonsComponent {
 
   loginWithFacebook(): void {
     this.socialAuthService
-      .signIn(FacebookLoginProvider.PROVIDER_ID)
+      .signIn(FacebookLoginProvider.PROVIDER_ID).then(()=>{
+        this.router.navigateByUrl('/user-details')
+      })
     
   }
 
