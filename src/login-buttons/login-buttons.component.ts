@@ -34,6 +34,7 @@ export class LoginButtonsComponent {
       password: ['', Validators.required],
     })
     this.socialAuthService.authState.subscribe((user) => {
+      console.log(user , "userrr")
       this.socialUser = user
       this.isLoggedin = user != null
     })
@@ -48,12 +49,7 @@ export class LoginButtonsComponent {
   loginWithFacebook(): void {
     this.socialAuthService
       .signIn(FacebookLoginProvider.PROVIDER_ID)
-      .then((res) => {
-        if(res){
-          this.router.navigate(['/user-details' , res])
-        }
-        console.log('res' , res)
-      })
+    
   }
 
   loginWithGoogle(): void {
