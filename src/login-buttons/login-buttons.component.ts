@@ -54,7 +54,9 @@ export class LoginButtonsComponent {
     this.socialAuthService
       .signIn(FacebookLoginProvider.PROVIDER_ID).then(()=>{
         this.router.navigateByUrl('/user-details')
+        location.reload()
       })
+     
     
   }
 
