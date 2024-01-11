@@ -1,3 +1,6 @@
+
+<router-outlet></router-outlet>
+
 <h2 class="text-center mb-4">Login with Facebook in Angular</h2>
 <div *ngIf="!isLoggedin">
   <button
@@ -54,10 +57,9 @@
         data-client_id="745628972767-3mlbmn5lcps4d1joe97ftckonu6gtio8.apps.googleusercontent.com"
         data-context="signin"
         data-ux_mode="popup"
-        data-login_uri="https://social-login-ashen.vercel.app"
+        data-login_uri="https://social-login-ashen.vercel.app/"
         data-auto_select="true"
         data-itp_support="true"
-        (click)="loginWithGoogle()"
       ></div>
 
       <div
@@ -117,3 +119,7 @@
     </div>
   </div>
 </div>
+
+<button type="button" (click)="login()" class="btn btn-primary">
+  Login
+</button>

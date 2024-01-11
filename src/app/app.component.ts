@@ -19,6 +19,11 @@ declare const gapi: any;
  
 })
 export class AppComponent {
+  linkedInCredentials = {
+    clientId: "865ozsdzgfntvy",
+    redirectUrl: "https://social-login-ashen.vercel.app",
+    scope: "r_liteprofile%20r_emailaddress%20w_member_social" // To read basic user profile data and email
+  };
   loginForm!: FormGroup;
   socialUser!: SocialUser;
   isLoggedin?: boolean = undefined;
@@ -52,6 +57,12 @@ export class AppComponent {
     });
   }
 
+  login() {
+    window.location.href = `https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=${
+      this.linkedInCredentials.clientId
+    }&redirect_uri=${this.linkedInCredentials.redirectUrl}&scope={this.linkedInCredentials.scope}`;
+  }
+  
   loginWithGoogle(): void {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then((res)=>{
       console.log( res,' this.socialAuthService this.socialAuthService')
