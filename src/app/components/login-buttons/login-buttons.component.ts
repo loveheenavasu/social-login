@@ -52,7 +52,9 @@ export class LoginButtonsComponent {
     //   });
     // });
   }
-  login(): void {
+
+  
+  authO(): void {
     this.authService.loginWithRedirect({  });
 
   }
