@@ -16,6 +16,7 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(AuthModule.forRoot({
       domain: 'dev-gdap35jfe1hyva4q.us.auth0.com',
       clientId: '8Zy7XnLKct1mIGzKFzqKWDeimQXvNyev',
+      
     })),
     provideRouter(routes),
     provideClientHydration(),

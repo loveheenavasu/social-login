@@ -55,8 +55,7 @@ export class LoginButtonsComponent {
 
   
   authO(): void {
-    this.authService.loginWithRedirect({  });
-
+    this.authService.loginWithRedirect()
   }
 
   loginWithFacebook(): void {
