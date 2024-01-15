@@ -60,6 +60,14 @@ export class LoginButtonsComponent {
     
   }
 
+  signInWithGoogle(): void {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then(x => console.log(x));
+    console.log('Logged in successfully...')
+  }
+
+
+
+
   loginWithGoogle(): void {
     this.socialAuthService
       .signIn(GoogleLoginProvider.PROVIDER_ID)

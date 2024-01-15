@@ -1,6 +1,5 @@
-import { LoginButtonsComponent } from './../login-buttons/login-buttons.component'
 import { Routes } from '@angular/router'
-import { UserDetailsComponent } from '../user-details/user-details.component'
+import { LoginButtonsComponent, UserDetailsComponent } from './components'
 
 export const routes: Routes = [
   {
