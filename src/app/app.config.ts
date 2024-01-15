@@ -14,8 +14,8 @@ import { provideHttpClient } from '@angular/common/http'
 export const appConfig: ApplicationConfig = {
   providers: [
     importProvidersFrom(AuthModule.forRoot({
-      domain: 'https://social-login-ashen.vercel.app/',
-      clientId: 'e6a8bf2f7c564458a493',
+      domain: 'dev-gdap35jfe1hyva4q.us.auth0.com',
+      clientId: '8Zy7XnLKct1mIGzKFzqKWDeimQXvNyev',
     })),
     provideRouter(routes),
     provideClientHydration(),
