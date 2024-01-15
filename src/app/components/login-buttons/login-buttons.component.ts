@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../auth.service';
-
+import { AuthModule } from '@auth0/auth0-angular';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-login-buttons',
@@ -53,8 +53,8 @@ export class LoginButtonsComponent {
     // });
   }
   login(): void {
-    const authUrl = this.authService.getAuthorizationUrl();
-    window.location.href = authUrl;
+    this.authService.loginWithRedirect({  });
+
   }
 
   loginWithFacebook(): void {
