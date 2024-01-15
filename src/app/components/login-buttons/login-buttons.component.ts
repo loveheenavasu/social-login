@@ -10,6 +10,7 @@ import { AuthService } from '../../auth.service';
   selector: 'app-login-buttons',
   standalone: true,
   imports: [CommonModule , SocialLoginModule],
+  providers: [AuthService],
   templateUrl: './login-buttons.component.html',
   styleUrl: './login-buttons.component.scss',
 })
@@ -52,8 +53,10 @@ export class LoginButtonsComponent {
     // });
   }
   login(): void {
-    this.authService.login();
+    const authUrl = this.authService.getAuthorizationUrl();
+    window.location.href = authUrl;
   }
+
   loginWithFacebook(): void {
     this.socialAuthService
       .signIn(FacebookLoginProvider.PROVIDER_ID).then(()=>{

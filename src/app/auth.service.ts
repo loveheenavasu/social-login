@@ -1,41 +1,30 @@
 // auth.service.ts
 import { Injectable } from '@angular/core';
-import { OAuthService, AuthConfig } from 'angular-oauth2-oidc';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private oauthService: OAuthService) {
-    this.configureOAuth();
+  private clientId = 'e6a8bf2f7c564458a493';
+  private redirectUri = 'http://localhost:57288';
+  private githubApiUrl = 'https://github.com/login/oauth';
+
+  constructor(private http: HttpClient) {}
+
+  getAuthorizationUrl(): string {
+    return `${this.githubApiUrl}/authorize?client_id=${this.clientId}&redirect_uri=${this.redirectUri}&scope=user`;
   }
 
-  private configureOAuth(): void {
-    const authConfig: AuthConfig = {
-        issuer: 'https://github.com/login/oauth/authorize',
-        // redirectUri: window.location.origin + '/callback',
-        clientId: 'e6a8bf2f7c564458a493',
-        responseType: 'code',
-        scope: 'user',
-      };
+  getToken(code: string): Observable<any> {
+    const body = {
+      client_id: this.clientId,
+      client_secret: 'ab484a9113affd5e3905da99e58517246989f785',
+      code: code,
+     redirectUri:this.redirectUri
+    };
 
-    this.oauthService.configure(authConfig);
-    this.oauthService.loadDiscoveryDocumentAndLogin();
-  }
-
-  login(): void {
-    this.oauthService.initImplicitFlow();
-  }
-
-  logout(): void {
-    this.oauthService.logOut();
-  }
-
-  getAccessToken(): string {
-    return this.oauthService.getAccessToken();
-  }
-
-  isLoggedIn(): boolean {
-    return this.oauthService.hasValidAccessToken();
+    return this.http.post(`${this.githubApiUrl}/access_token`, body);
   }
 }
