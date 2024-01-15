@@ -28,6 +28,7 @@ export const appConfig: ApplicationConfig = {
             id: FacebookLoginProvider.PROVIDER_ID,
             provider: new FacebookLoginProvider('1084092632785028'),
           },
+          
         ],
         onError: (err) => {
           console.error(err)

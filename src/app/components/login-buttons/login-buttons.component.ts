@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core'
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../auth.service';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class LoginButtonsComponent {
   constructor(
     private formBuilder: FormBuilder,
     private socialAuthService: SocialAuthService,
-    private router:Router
+    private router:Router,
+    private authService: AuthService
   ) {
     console.log(this.isLoggedin)
   }
@@ -49,7 +51,9 @@ export class LoginButtonsComponent {
     //   });
     // });
   }
-
+  login(): void {
+    this.authService.login();
+  }
   loginWithFacebook(): void {
     this.socialAuthService
       .signIn(FacebookLoginProvider.PROVIDER_ID).then(()=>{

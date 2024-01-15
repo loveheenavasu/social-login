@@ -11,7 +11,9 @@
       <div class="col-5">
         <div class="box">
           <span class="borderline"></span>
+
           <form action="">
+            
             <h2 style="font-weight: 700;margin:35px 0" class="mt-4">Sign In With</h2>
             <div class="form-group button-div mt-3">
                 <div
@@ -35,7 +37,7 @@
                   data-logo_alignment="left"
                 ></div>
               </div>
-              <button class="btn btn-social-icon btn-google" (click)="signInWithGoogle()">Google</button>
+            
               <div class="form-group button-div">
                 <button
                 type="button"
@@ -45,6 +47,7 @@
                 Signin with Facebook
               </button>
               </div>
+              <button (click)="login()">Login with GitHub</button>
           </form>
         </div>
       </div>
