@@ -1,4 +1,4 @@
-import { AuthModule } from '@auth0/auth0-angular';
+import { AuthModule } from '@auth0/auth0-angular'
 import { ApplicationConfig, importProvidersFrom } from '@angular/core'
 import { provideRouter } from '@angular/router'
 
@@ -13,13 +13,15 @@ import { provideHttpClient } from '@angular/common/http'
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    importProvidersFrom(AuthModule.forRoot({
-      domain: 'dev-gdap35jfe1hyva4q.us.auth0.com',
-      clientId: '8Zy7XnLKct1mIGzKFzqKWDeimQXvNyev',
-      authorizationParams: {
-        redirect_uri: `https://social-login-ashen.vercel.app`,
-      },
-    })),
+    importProvidersFrom(
+      AuthModule.forRoot({
+        domain: 'dev-gdap35jfe1hyva4q.us.auth0.com',
+        clientId: '8Zy7XnLKct1mIGzKFzqKWDeimQXvNyev',
+        authorizationParams: {
+          redirect_uri: `https://social-login-ashen.vercel.app`,
+        },
+      }),
+    ),
     provideRouter(routes),
     provideClientHydration(),
     provideHttpClient(),
@@ -38,7 +40,6 @@ export const appConfig: ApplicationConfig = {
             id: FacebookLoginProvider.PROVIDER_ID,
             provider: new FacebookLoginProvider('1084092632785028'),
           },
-          
         ],
         onError: (err) => {
           console.error(err)

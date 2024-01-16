@@ -7,7 +7,8 @@ export const routes: Routes = [
     component: LoginButtonsComponent,
   },
   {
-    path:'user-details',
-    component:UserDetailsComponent
-  }
+    path: 'user-details',
+    component: UserDetailsComponent,
+  },
+  { path: 'profile', component: UserDetailsComponent },
 ]
