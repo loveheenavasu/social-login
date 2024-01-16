@@ -7,7 +7,7 @@ import { Observable } from 'rxjs'
   providedIn: 'root',
 })
 export class SocialLoginService {
-  private baseUrl = 'https://git-auth-e2ro.onrender.com' // Replace with your backend URL
+  private baseUrl = 'https://git-auth-b4j9.onrender.com' // Replace with your backend URL
 
   constructor(private http: HttpClient) {}
 
